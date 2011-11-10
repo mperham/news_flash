@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111110031302) do
+ActiveRecord::Schema.define(:version => 20111110042615) do
 
   create_table "changes", :force => true do |t|
     t.string   "link",       :null => false
     t.string   "title",      :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",            :null => false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_read_at"
   end
 
 end

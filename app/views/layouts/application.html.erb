@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>NewsFlash</title>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="padding-top: 50px;">
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="container">
+        <a class="brand" href="/">News Flash</a>
+        <ul class="nav">
+          <% if current_user %>
+            <li><%= link_to "Log out", logout_path %></li>
+          <% else %>
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "Log in", login_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

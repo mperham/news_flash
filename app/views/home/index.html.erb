@@ -1,0 +1,13 @@
+<h1>Welcome Home!</h1>
+
+<% if @changes.present? %>
+  <div id="news">
+    <span class="label success">News!</span>
+    <ul>
+      <% @changes.each do |change| %>
+        <li><%= change.title %> (<%= link_to 'Read More', change.link %>)</li>
+      <% end %>
+    </ul>
+    <%= link_to 'Mark as Read', '#', :id => 'mark_as_read' %>
+  </div>
+<% end %>
